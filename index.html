@@ -112,24 +112,31 @@ table.prev th{background:var(--chip)}
 <div id="errbar"></div>
 <div id="app"></div>
 <div id="toast"><span id="toastmsg"></span><button id="toastbtn">Undo</button></div>
+<script src="config.js"></script>
 <script>
 'use strict';
 /* ================= SETTINGS YOU MAY EDIT ================= */
 // Copy these two values from one of your other apps' index.html
 // (same Supabase project). The key is the public "anon" key.
-const SUPABASE_URL = 'https://zwyadgdcbtjhybsiepmt.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_2XUXLVI8kqqK4nH62VWwRw_x79F5gNo'
+// Normally these come from config.js (a separate 2-line file, so updating
+// this page never means re-pasting them). Leave the placeholders here.
+const CFG = window.FOOD_DIARY_CONFIG || {};
+const SUPABASE_URL = CFG.url || 'PASTE_SUPABASE_URL_HERE';
+const SUPABASE_ANON_KEY = CFG.key || 'PASTE_SUPABASE_ANON_KEY_HERE';
 
-const BUILD = 'b1';
+const BUILD = 'b2';
 
 // "Usual breakfast" button. Kind is 'food' or 'supplement'.
+// n / unit / desc are optional starting amounts; the person logging fills in
+// how much was offered (porridge) and how much was eaten or taken.
 const USUAL_BREAKFAST = [
-  { name: 'Ready Brek', kind: 'food' },
-  { name: 'Green kiwi', kind: 'food' },
-  { name: 'Flax seeds', kind: 'food' },
-  { name: 'Multivitamin & mineral supplement', kind: 'supplement' },
-  { name: 'Omega-3 oil', kind: 'supplement' }
+  { name: 'Porridge', kind: 'food' },
+  { name: 'Nordic Naturals DHA for kids omega 3', kind: 'supplement', desc: '2.5 ml' },
+  { name: 'Viridikid', kind: 'supplement', desc: '1 capsule' },
+  { name: 'Kiwi fruit', kind: 'food', n: '1', unit: 'piece' }
 ];
+// Added to the notes when the usual breakfast button is used.
+const USUAL_BREAKFAST_NOTE = 'See spreadsheet for content of vitamin and mineral supplement';
 // Supplements that go in the daily smoothie (added as their own rows).
 const SMOOTHIE_SUPPLEMENTS = ['Magnesium', 'Vitamin B6'];
 // One-tap tags for a meal (all optional).
@@ -145,8 +152,8 @@ const UNITS = ['tsp','tbsp','ml','g','pouch','jar','piece','small bowl','large b
 const FILLS = ['¼ full','½ full','¾ full','full','heaped'];
 const EATEN = [['none','None'],['q','¼'],['h','½'],['tq','¾'],['all','All'],['unk','Not sure']];
 const EATEN_LABEL = {none:'None',q:'¼',h:'½',tq:'¾',all:'All',unk:'Not sure'};
-const SUPP = [['yes','Yes'],['partly','Partly'],['no','No'],['unk','Not sure']];
-const SUPP_LABEL = {yes:'Yes',partly:'Partly',no:'No',unk:'Not sure'};
+const SUPP = EATEN;
+const SUPP_LABEL = Object.assign({yes:'Yes',partly:'Partly',no:'No'}, EATEN_LABEL);
 
 /* ---------- error overlay (no dev console on phones) ---------- */
 function showErr(msg){ const b=document.getElementById('errbar'); b.textContent='Something went wrong (tap to hide):\n'+msg; b.style.display='block'; }
@@ -414,7 +421,7 @@ function renderForm(){
     + MEALS.map(([v,l])=>'<button class="chip meal'+(f.meal===v?' on':'')+'" data-act="f-meal" data-v="'+v+'">'+l+'</button>').join('')+'</div></div>';
   h += '<div class="field inline"><div><span class="flabel">Date</span><input class="txt" type="date" data-f="day" value="'+esc(f.day)+'" max="'+today()+'"></div>'
     + '<div><span class="flabel">Time</span><input class="txt" type="time" data-f="time" value="'+esc(f.time)+'"></div></div>';
-  if (f.meal==='breakfast') h += '<div class="row"><button class="btn quiet" data-act="usual">Fill in usual breakfast</button></div>';
+  if (f.meal==='breakfast') h += '<div class="row"><button class="btn quiet" data-act="usual">Usual breakfast (porridge)</button></div>';
   const hist = history();
   f.items.forEach((it, i) => {
     const isS = it.kind==='supplement';
@@ -428,7 +435,7 @@ function renderForm(){
       + '<div class="chips" style="margin-top:8px">'+UNITS.map(u=>'<button class="chip small'+(it.unit===u?' on':'')+'" data-act="unit" data-v="'+i+'|'+u+'">'+u+'</button>').join('')+'</div>';
     if (/bowl/.test(it.unit)) h += '<div class="sub"><span class="flabel">How full was the bowl?</span><div class="chips">'+FILLS.map(x=>'<button class="chip small'+(it.fill===x?' on':'')+'" data-act="fill" data-v="'+i+'|'+x+'">'+x+'</button>').join('')+'</div></div>';
     h += '<input class="txt" style="margin-top:10px" placeholder="Or describe it (e.g. 120 g pouch, 1 slice)" data-i="'+i+'" data-k="desc" value="'+esc(it.desc)+'"></div>';
-    if (isS) h += '<div class="sub"><span class="flabel">Supplement eaten?</span><div class="chips">'+SUPP.map(([v,l])=>'<button class="chip'+(it.supp===v?' on':'')+'" data-act="supp" data-v="'+i+'|'+v+'">'+l+'</button>').join('')+'</div></div>';
+    if (isS) h += '<div class="sub"><span class="flabel">How much of the dose was taken?</span><div class="chips">'+SUPP.map(([v,l])=>'<button class="chip'+(it.supp===v?' on':'')+'" data-act="supp" data-v="'+i+'|'+v+'">'+l+'</button>').join('')+'</div></div>';
     else h += '<div class="sub"><span class="flabel">How much was eaten?</span><div class="chips">'+EATEN.map(([v,l])=>'<button class="chip'+(it.eaten===v?' on':'')+'" data-act="eaten" data-v="'+i+'|'+v+'">'+l+'</button>').join('')+'</div></div>';
     h += '</div>';
   });
@@ -621,11 +628,10 @@ app.addEventListener('click', e => {
     case 'f-src': f.source=v; render(); break;
     case 'f-paper': f.paper=!f.paper; render(); break;
     case 'tag': f.tags = f.tags.includes(v) ? f.tags.filter(t=>t!==v) : f.tags.concat([v]); render(); break;
-    case 'usual': { const hist=history(); const have = f.items.filter(it=>it.name.trim());
-      f.items = have.concat(USUAL_BREAKFAST.filter(b => !have.some(it=>it.name.toLowerCase()===b.name.toLowerCase())).map(b => {
-        const it = newItem(b.name, b.kind), p = hist[b.name.toLowerCase()];
-        if (p){ it.n=p.n||''; it.unit=p.unit||''; it.fill=p.fill||''; it.desc=p.desc||''; it.kind=p.kind||b.kind; }
-        return it; }));
+    case 'usual': { const have = f.items.filter(it=>it.name.trim());
+      f.items = have.concat(USUAL_BREAKFAST.filter(b => !have.some(it=>it.name.trim().toLowerCase()===b.name.toLowerCase())).map(b => {
+        const it = newItem(b.name, b.kind); it.n=b.n||''; it.unit=b.unit||''; it.desc=b.desc||''; return it; }));
+      if (!f.note.trim()) f.note = USUAL_BREAKFAST_NOTE;
       render(); } break;
     case 'additem': f.items.push(newItem()); render(); break;
     case 'addsupp': f.items.push(newItem('', 'supplement')); render(); break;
