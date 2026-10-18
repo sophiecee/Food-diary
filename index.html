@@ -124,17 +124,20 @@ const CFG = window.FOOD_DIARY_CONFIG || {};
 const SUPABASE_URL = CFG.url || 'PASTE_SUPABASE_URL_HERE';
 const SUPABASE_ANON_KEY = CFG.key || 'PASTE_SUPABASE_ANON_KEY_HERE';
 
-const BUILD = 'b2';
+const BUILD = 'b3';
 
 // "Usual breakfast" button. Kind is 'food' or 'supplement'.
 // n / unit / desc are optional starting amounts; the person logging fills in
 // how much was offered (porridge) and how much was eaten or taken.
 const USUAL_BREAKFAST = [
   { name: 'Porridge', kind: 'food' },
+  { name: 'Flax seeds', kind: 'food' },
   { name: 'Nordic Naturals DHA for kids omega 3', kind: 'supplement', desc: '2.5 ml' },
   { name: 'Viridikid', kind: 'supplement', desc: '1 capsule' },
   { name: 'Kiwi fruit', kind: 'food', n: '1', unit: 'piece' }
 ];
+// One-tap extras offered on every meal (for things that go in everything).
+const QUICK_ADD = [ { name: 'Flax seeds', kind: 'food' } ];
 // Added to the notes when the usual breakfast button is used.
 const USUAL_BREAKFAST_NOTE = 'See spreadsheet for content of vitamin and mineral supplement';
 // Supplements that go in the daily smoothie (added as their own rows).
@@ -439,7 +442,8 @@ function renderForm(){
     else h += '<div class="sub"><span class="flabel">How much was eaten?</span><div class="chips">'+EATEN.map(([v,l])=>'<button class="chip'+(it.eaten===v?' on':'')+'" data-act="eaten" data-v="'+i+'|'+v+'">'+l+'</button>').join('')+'</div></div>';
     h += '</div>';
   });
-  h += '<div class="row"><button class="btn" data-act="additem">+ Another food</button><button class="btn" data-act="addsupp">+ Supplement</button></div>';
+  h += '<div class="row"><button class="btn" data-act="additem">+ Another food</button><button class="btn" data-act="addsupp">+ Supplement</button>'
+    + QUICK_ADD.map((q,qi)=>'<button class="btn" data-act="quickadd" data-v="'+qi+'">+ '+esc(q.name)+'</button>').join('') + '</div>';
   h += '<div class="field"><span class="flabel">Anything else? <small>(optional – tap any that apply)</small></span><div class="chips">'
     + TAGS.map(t=>'<button class="chip small'+(f.tags.includes(t)?' on':'')+'" data-act="tag" data-v="'+esc(t)+'">'+esc(t)+'</button>').join('')+'</div></div>';
   h += '<div class="field"><span class="flabel">Notes <small>(optional)</small></span><textarea class="txt" data-f="note" placeholder="Anything worth knowing">'+esc(f.note)+'</textarea></div>';
@@ -634,6 +638,11 @@ app.addEventListener('click', e => {
       if (!f.note.trim()) f.note = USUAL_BREAKFAST_NOTE;
       render(); } break;
     case 'additem': f.items.push(newItem()); render(); break;
+    case 'quickadd': { const q = QUICK_ADD[+v];
+      if (f.items.some(it=>it.name.trim().toLowerCase()===q.name.toLowerCase())){ toast(q.name+' is already added'); break; }
+      const it = newItem(q.name, q.kind); it.n=q.n||''; it.unit=q.unit||''; it.desc=q.desc||'';
+      if (f.items.length===1 && !f.items[0].name.trim()) f.items=[it]; else f.items.push(it);
+      render(); } break;
     case 'addsupp': f.items.push(newItem('', 'supplement')); render(); break;
     case 'delitem': f.items.splice(+v,1); render(); break;
     case 'sugg': { const [it, name] = itemAt(v); const p = history()[name.toLowerCase()]; it.name=name;
