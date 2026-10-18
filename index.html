@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Food diary">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f6f1e7">
+<meta name="robots" content="noindex, nofollow">
+<title>Food diary</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+:root{
+  --bg:#f6f1e7; --card:#fffdf8; --ink:#23302d; --muted:#6b7672; --line:#e3dccd;
+  --teal:#2e7d6e; --teal-d:#235f54; --teal-l:#dcefe9;
+  --amber:#b7791f; --amber-l:#fbefd9; --red:#b3402f; --red-l:#f9e1dc;
+  --chip:#efe9dc; --shadow:0 1px 3px rgba(35,48,45,.08);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding:env(safe-area-inset-top) 0 calc(env(safe-area-inset-bottom) + 90px)}
+button{font:inherit;color:inherit}
+input,textarea,select{font:inherit;color:var(--ink)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line)}
+.toprow{display:flex;align-items:center;gap:8px}
+.daynav{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
+.daynav h1{font-size:21px;margin:0;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{min-width:48px;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:22px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px}
+.subrow{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px;flex-wrap:wrap}
+.badge{border:0;border-radius:999px;padding:7px 14px;font-size:15px;font-weight:600;background:var(--teal-l);color:var(--teal-d)}
+.badge.warn{background:var(--amber-l);color:var(--amber)}
+.badge.err{background:var(--red-l);color:var(--red)}
+.devlabel{font-size:15px;color:var(--muted)}
+.linkbtn{background:none;border:0;color:var(--teal-d);font-weight:600;padding:6px 4px;text-decoration:underline;font-size:16px}
+.summary{margin:14px 0 4px;font-size:16px;color:var(--muted)}
+.slot{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:12px 0;padding:14px;box-shadow:var(--shadow)}
+.slot h2{font-size:19px;margin:0 0 8px;display:flex;justify-content:space-between;align-items:center}
+.slot h2 small{font-weight:500;color:var(--muted);font-size:15px}
+.gap{border-radius:12px;padding:10px 12px;background:var(--chip);color:var(--muted);font-size:16px}
+.gap.late{background:var(--amber-l);color:var(--amber);font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{min-height:52px;border-radius:14px;border:1px solid var(--line);background:var(--card);padding:10px 18px;font-weight:600;font-size:17px}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.big{width:100%;min-height:60px;font-size:19px}
+.btn.quiet{background:var(--chip);border-color:var(--chip)}
+.btn.danger{color:var(--red)}
+.btn.sm{min-height:42px;padding:6px 14px;font-size:15px}
+.entry{border-top:1px solid var(--line);padding:10px 0 4px}
+.entry:first-of-type{border-top:0;padding-top:2px}
+.entry.removed{opacity:.55}
+.emeta{font-size:15px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.src{border-radius:6px;padding:1px 8px;font-size:13px;font-weight:700;background:var(--chip);color:var(--ink)}
+.src.nursery{background:#e5e1f5;color:#4a3f86}
+.pending{color:var(--amber);font-weight:600}
+.item{margin:6px 0 0 0}
+.item b{font-weight:600}
+.item .amt{color:var(--muted);font-size:16px}
+.miss{color:var(--amber);font-weight:600;font-size:15px}
+.tagline{font-size:15px;color:var(--teal-d);margin-top:4px}
+.note{font-size:16px;font-style:italic;margin-top:4px}
+.eacts{display:flex;gap:6px;margin-top:6px}
+.fab{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(rgba(246,241,231,0),var(--bg) 30%);z-index:15}
+.fab .wrap{display:flex;gap:10px;padding:0}
+.fab .btn{flex:1;min-height:62px;font-size:19px;box-shadow:0 2px 8px rgba(35,48,45,.15)}
+.screen h1{font-size:23px;margin:0}
+.field{margin:18px 0 0}
+.field>label,.flabel{display:block;font-weight:700;font-size:16px;margin-bottom:8px}
+.flabel small{font-weight:500;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:50px;min-width:56px;border-radius:12px;border:2px solid var(--line);background:var(--card);padding:8px 16px;font-size:17px;font-weight:600}
+.chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.chip.meal{flex:1 1 40%;min-height:64px;font-size:20px}
+.chip.small{min-height:42px;padding:6px 12px;font-size:15px;min-width:0}
+.chip.sugg{min-height:40px;font-size:15px;border-style:dashed;padding:4px 12px}
+.txt{width:100%;min-height:52px;border-radius:12px;border:2px solid var(--line);background:#fff;padding:10px 12px;font-size:18px}
+.txt:focus{outline:none;border-color:var(--teal)}
+textarea.txt{min-height:84px;resize:vertical}
+.num{width:120px;text-align:center}
+.inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.itemcard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}
+.itemcard.supp{border-color:#d9c7f0}
+.ihead{display:flex;gap:8px;align-items:center}
+.ihead .txt{flex:1}
+.sub{margin-top:12px}
+.hint{font-size:15px;color:var(--muted);margin-top:6px}
+.warnbox{background:var(--amber-l);color:#7a5212;border-radius:12px;padding:10px 12px;margin-top:12px;font-size:16px}
+.check{display:flex;align-items:center;gap:10px;font-size:16px;margin-top:10px}
+.check input{width:24px;height:24px}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom));background:var(--ink);color:#fff;border-radius:14px;padding:6px 6px 6px 18px;display:none;align-items:center;gap:12px;z-index:50;font-size:17px;max-width:92vw;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#toast button{background:#fff;color:var(--ink);border:0;border-radius:10px;min-height:46px;padding:0 18px;font-weight:700}
+#errbar{position:fixed;left:0;right:0;top:0;z-index:60;background:var(--red);color:#fff;padding:10px 14px;font-size:14px;display:none;white-space:pre-wrap}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.sheet .panel{background:var(--bg);width:100%;max-width:760px;border-radius:20px 20px 0 0;padding:20px 16px calc(24px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+.panel h2{margin:0 0 10px;font-size:21px}
+.panel p{margin:8px 0}
+table.prev{border-collapse:collapse;width:100%;font-size:14px;margin-top:12px;background:var(--card)}
+table.prev th,table.prev td{border:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
+table.prev th{background:var(--chip)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dayhead td{background:var(--teal-l);font-weight:700}
+.demo{background:var(--amber-l);color:#7a5212;text-align:center;font-size:14px;padding:6px}
+.centre{text-align:center;padding:40px 10px}
+.foot{font-size:13px;color:var(--muted);text-align:center;margin:24px 0}
+</style>
+</head>
+<body>
+<div id="errbar"></div>
+<div id="app"></div>
+<div id="toast"><span id="toastmsg"></span><button id="toastbtn">Undo</button></div>
+<script>
+'use strict';
+/* ================= SETTINGS YOU MAY EDIT ================= */
+// Copy these two values from one of your other apps' index.html
+// (same Supabase project). The key is the public "anon" key.
+const SUPABASE_URL = 'PASTE_SUPABASE_URL_HERE';
+const SUPABASE_ANON_KEY = 'PASTE_SUPABASE_ANON_KEY_HERE';
+
+const BUILD = 'b1';
+
+// "Usual breakfast" button. Kind is 'food' or 'supplement'.
+const USUAL_BREAKFAST = [
+  { name: 'Ready Brek', kind: 'food' },
+  { name: 'Green kiwi', kind: 'food' },
+  { name: 'Flax seeds', kind: 'food' },
+  { name: 'Multivitamin & mineral supplement', kind: 'supplement' },
+  { name: 'Omega-3 oil', kind: 'supplement' }
+];
+// Supplements that go in the daily smoothie (added as their own rows).
+const SMOOTHIE_SUPPLEMENTS = ['Magnesium', 'Vitamin B6'];
+// One-tap tags for a meal (all optional).
+const TAGS = ['At the table', 'On the floor mat', 'Split meal (poo break)', 'Finger food offered'];
+/* ========================================================= */
+
+const DEMO = SUPABASE_URL.indexOf('PASTE_') === 0;
+const MEALS = [['breakfast','Breakfast'],['lunch','Lunch'],['dinner','Dinner'],['snack','Snack']];
+const MEAL_LABEL = {breakfast:'Breakfast',lunch:'Lunch',dinner:'Dinner',snack:'Snack',drink:'Smoothie'};
+const MEAL_ORDER = {breakfast:1,lunch:3,dinner:5,snack:2,drink:9};
+const LATE_AFTER = {breakfast:'10:30',lunch:'14:00',dinner:'19:30'};
+const UNITS = ['tsp','tbsp','ml','g','pouch','jar','piece','small bowl','large bowl'];
+const FILLS = ['¼ full','½ full','¾ full','full','heaped'];
+const EATEN = [['none','None'],['q','¼'],['h','½'],['tq','¾'],['all','All'],['unk','Not sure']];
+const EATEN_LABEL = {none:'None',q:'¼',h:'½',tq:'¾',all:'All',unk:'Not sure'};
+const SUPP = [['yes','Yes'],['partly','Partly'],['no','No'],['unk','Not sure']];
+const SUPP_LABEL = {yes:'Yes',partly:'Partly',no:'No',unk:'Not sure'};
+
+/* ---------- error overlay (no dev console on phones) ---------- */
+function showErr(msg){ const b=document.getElementById('errbar'); b.textContent='Something went wrong (tap to hide):\n'+msg; b.style.display='block'; }
+window.addEventListener('error', e => showErr((e.message||'error')+(e.lineno?' (line '+e.lineno+')':'')));
+window.addEventListener('unhandledrejection', e => showErr(String(e.reason && e.reason.message || e.reason)));
+document.getElementById('errbar').onclick = function(){ this.style.display='none'; };
+
+/* ---------- storage ---------- */
+const store = {
+  get(k, d){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); return true; }catch(e){ showErr('Could not save on this device: '+e.message); return false; } }
+};
+const P = DEMO ? 'fdd_' : 'fd_';
+let LINK_KEY = (function(){
+  const m = location.hash.match(/k=([A-Za-z0-9]+)/);
+  if (m) { store.set(P+'key', m[1]); return m[1]; }
+  return store.get(P+'key', null);
+})();
+let device = store.get(P+'device', null);          // per-device setting, deliberately local
+let queue = store.get(P+'queue', []);               // ops not yet confirmed by the server
+let cache = store.get(P+'cache', {});               // id -> row, as last seen from the server (or demo)
+let sync = store.get(P+'sync', {last:null, error:null}); sync.busy=false;
+function saveQueue(){ store.set(P+'queue', queue); }
+function saveCache(){ store.set(P+'cache', cache); }
+function saveSync(){ store.set(P+'sync', {last:sync.last, error:sync.error}); }
+try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch(e){}
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function uuid(){ if (crypto.randomUUID) return crypto.randomUUID();
+  const b=crypto.getRandomValues(new Uint8Array(16)); b[6]=(b[6]&15)|64; b[8]=(b[8]&63)|128;
+  const h=[...b].map(x=>x.toString(16).padStart(2,'0')).join(''); return h.slice(0,8)+'-'+h.slice(8,12)+'-'+h.slice(12,16)+'-'+h.slice(16,20)+'-'+h.slice(20); }
+function pad(n){ return String(n).padStart(2,'0'); }
+function isoDate(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function today(){ return isoDate(new Date()); }
+function nowTime(){ const d=new Date(); return pad(d.getHours())+':'+pad(d.getMinutes()); }
+function addDays(iso, n){ const [y,m,d]=iso.split('-').map(Number); return isoDate(new Date(y, m-1, d+n)); }
+function parseDate(iso){ const [y,m,d]=iso.split('-').map(Number); return new Date(y, m-1, d); }
+function niceDate(iso, withYear){ return parseDate(iso).toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short', year: withYear?'numeric':undefined}); }
+function ukDate(iso){ const [y,m,d]=iso.split('-'); return d+'/'+m+'/'+y; }
+function plural(unit, n){ if (!(Number(n)>1)) return unit; if (['pouch'].includes(unit)) return 'pouches'; if (['jar','piece'].includes(unit)) return unit+'s'; if (/bowl$/.test(unit)) return unit+'s'; return unit; }
+function sortKey(r){ return (r.eaten_time || ({breakfast:'08:00',snack:'10:00',lunch:'12:00',dinner:'17:30',drink:'23:59'}[r.meal])) + (r.client_created_at||r.created_at||''); }
+
+/* ---------- item text ---------- */
+function newItem(name, kind){ return {name:name||'', kind:kind||'food', n:'', unit:'', fill:'', desc:'', eaten:'', supp:''}; }
+function offeredText(it){
+  if (it.fixed) return it.offeredText || '';
+  let s='';
+  if (it.unit){
+    const n = it.n || (/bowl/.test(it.unit) ? '1' : '');
+    s = (n ? n+' ' : '') + plural(it.unit, n);
+    if (/bowl/.test(it.unit) && it.fill) s += ' ('+it.fill+')';
+  } else if (it.n) s = it.n;
+  if (it.desc) s = s ? s+' – '+it.desc : it.desc;
+  return s;
+}
+function eatenText(it){
+  if (it.kind==='drink') return it.eatenText || '';
+  if (it.kind==='supplement') return it.supp ? SUPP_LABEL[it.supp] : (it.eatenText||'');
+  return it.eaten ? EATEN_LABEL[it.eaten] : '';
+}
+
+/* ---------- server ---------- */
+async function rpc(fn, args){
+  const headers = {'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json'};
+  if (SUPABASE_ANON_KEY.indexOf('eyJ')===0) headers['Authorization'] = 'Bearer '+SUPABASE_ANON_KEY;
+  const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 12000);
+  let res;
+  try { res = await fetch(SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/rpc/'+fn, {method:'POST', headers, body:JSON.stringify(args), signal:ctrl.signal, cache:'no-store'}); }
+  catch(e){ const err = new Error('offline'); err.offline = true; throw err; }
+  finally { clearTimeout(t); }
+  const txt = await res.text();
+  if (!res.ok){ let m=txt; try{ m=JSON.parse(txt).message||txt; }catch(e){} const err=new Error(m.indexOf('bad link key')>=0 ? 'Link not recognised – check the full link' : ('Server said: '+m)); err.server=true; throw err; }
+  return txt ? JSON.parse(txt) : null;
+}
+
+/* ---------- local view = server cache + pending ops ---------- */
+function applyOp(map, op){
+  if (op.op==='add'){ map[op.row.id] = Object.assign({}, op.row, {_pending:true});
+    if (op.row.supersedes && map[op.row.supersedes]) map[op.row.supersedes] = Object.assign({}, map[op.row.supersedes], {hidden:true}); }
+  else if (op.op==='hide' && map[op.id]) map[op.id] = Object.assign({}, map[op.id], {hidden:op.hidden, _pending:true});
+}
+function allRows(){ const map = Object.assign({}, cache); queue.forEach(op => applyOp(map, op)); return map; }
+function rowsForDay(day, includeHidden){
+  return Object.values(allRows()).filter(r => r.day===day && (includeHidden || !r.hidden)).sort((a,b)=> sortKey(a)<sortKey(b)?-1:1);
+}
+function enqueue(op){ queue.push(op); saveQueue(); if (DEMO) flushDemo(); else trySync(); render(); }
+function flushDemo(){ queue.forEach(op => applyOp(cache, op)); Object.values(cache).forEach(r => delete r._pending); queue=[]; saveQueue(); saveCache(); }
+
+async function trySync(){
+  if (DEMO || sync.busy || !LINK_KEY) return;
+  sync.busy = true; renderBadge();
+  try {
+    while (queue.length){
+      const op = queue[0];
+      if (op.op==='add') await rpc('food_add', {p_key:LINK_KEY, p_row:op.row});
+      else if (op.op==='hide') await rpc('food_hide', {p_key:LINK_KEY, p_id:op.id, p_hidden:op.hidden});
+      applyOp(cache, op);                      // server has it now
+      Object.values(cache).forEach(r => { delete r._pending; });
+      queue.shift(); saveQueue(); saveCache();
+    }
+    await refreshRange(addDays(S.day,-1), addDays(S.day,1));
+    sync.last = new Date().toISOString(); sync.error = null;
+  } catch(e){
+    sync.error = e.offline ? null : e.message;
+    sync.offline = !!e.offline;
+  } finally { sync.busy = false; saveSync(); softRender(); }
+}
+async function refreshRange(from, to){
+  if (DEMO || !LINK_KEY) return;
+  const rows = await rpc('food_list', {p_key:LINK_KEY, p_from:from, p_to:to});
+  (rows||[]).forEach(r => { cache[r.id] = r; });
+  saveCache(); sync.offline = false;
+}
+
+/* ---------- history-derived helpers (no separate shared lists to drift) ---------- */
+function history(){
+  const last = {};   // lower-case name -> latest item seen
+  Object.values(allRows()).filter(r=>!r.hidden).sort((a,b)=> (a.day+sortKey(a))<(b.day+sortKey(b))?-1:1)
+    .forEach(r => (r.items||[]).forEach(it => { if (it.name) last[it.name.toLowerCase()] = it; }));
+  return last;
+}
+function lastSmoothie(){
+  const rows = Object.values(allRows()).filter(r=>!r.hidden && r.meal==='drink').sort((a,b)=> a.day<b.day?-1:1);
+  return rows[rows.length-1] || null;
+}
+
+/* ---------- app state ---------- */
+const S = { screen:'day', day: today(), form:null, sm:null, exFrom: addDays(today(),-6), exTo: today(), showRemoved:false, sheet:null };
+
+/* ---------- toast with undo ---------- */
+let toastTimer=null;
+function toast(msg, undoFn){
+  const t=document.getElementById('toast'), b=document.getElementById('toastbtn');
+  document.getElementById('toastmsg').textContent = msg;
+  b.style.display = undoFn ? '' : 'none';
+  b.onclick = () => { t.style.display='none'; if (undoFn) undoFn(); };
+  t.style.display='flex'; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display='none', undoFn?9000:3000);
+}
+
+/* ---------- rendering ---------- */
+const app = document.getElementById('app');
+function render(){
+  if (!DEMO && !LINK_KEY){ app.innerHTML = '<div class="wrap centre"><h1>Food diary</h1><p>This page needs its full link to open.</p><p>Please use the link you were sent (it ends with a long code).</p></div>'; return; }
+  if (!device){ app.innerHTML = demoBar()+'<div class="wrap centre"><h1>Food diary</h1><p style="font-size:20px">Where is this device used?</p><div class="row" style="justify-content:center"><button class="btn primary big" data-act="setdev" data-v="home">Home</button><button class="btn primary big" data-act="setdev" data-v="nursery">Nursery</button></div><p class="hint">You can change this later.</p></div>'; return; }
+  if (S.screen==='form') app.innerHTML = demoBar()+renderForm();
+  else if (S.screen==='smoothie') app.innerHTML = demoBar()+renderSmoothie();
+  else if (S.screen==='export') app.innerHTML = demoBar()+renderExport();
+  else app.innerHTML = demoBar()+renderDay();
+  if (S.sheet) app.insertAdjacentHTML('beforeend', renderSheet());
+  renderBadge();
+}
+function demoBar(){ return DEMO ? '<div class="demo">Demo mode – saved on this device only. Paste the Supabase details into the file to go live.</div>' : ''; }
+function badgeHtml(){
+  const n = queue.length;
+  if (DEMO) return '<button class="badge" data-act="sheet" data-v="sync">Demo</button>';
+  if (sync.busy) return '<button class="badge" data-act="sheet" data-v="sync">Saving…</button>';
+  if (sync.error) return '<button class="badge err" data-act="sheet" data-v="sync">⚠ '+(n?n+' not sent':'Problem')+' – tap</button>';
+  if (n) return '<button class="badge warn" data-act="sheet" data-v="sync">⏳ '+n+' waiting to send</button>';
+  return '<button class="badge" data-act="sheet" data-v="sync">✓ All saved</button>';
+}
+function softRender(){ checkDayRollover(); if (S.screen==='form' || S.screen==='smoothie') return; render(); }
+let knownToday = today();
+function checkDayRollover(){ const t=today(); if (t!==knownToday){ if (S.day===knownToday) S.day=t; knownToday=t; } }
+function renderBadge(){ const el=document.getElementById('badgeslot'); if (el) el.innerHTML = badgeHtml(); }
+
+function renderDay(){
+  const rows = rowsForDay(S.day);
+  const hiddenRows = rowsForDay(S.day, true).filter(r=>r.hidden);
+  const isToday = S.day===today(), isPast = S.day<today();
+  const by = m => rows.filter(r=>r.meal===m);
+  const nowT = nowTime();
+  let mainDone=0; ['breakfast','lunch','dinner'].forEach(m=>{ if (by(m).length) mainDone++; });
+  const snacks = by('snack').filter(r=>r.status==='eaten').length;
+  const sm = by('drink')[0];
+  const smItem = sm && (sm.items||[])[0];
+  let h = '<div class="top"><div class="wrap"><div class="toprow"><div class="daynav">'
+    + '<button class="iconbtn" data-act="day" data-v="-1" aria-label="Previous day">‹</button>'
+    + '<h1>'+(isToday?'Today, ':'')+esc(niceDate(S.day))+'</h1>'
+    + '<button class="iconbtn" data-act="day" data-v="1" aria-label="Next day">›</button></div>'
+    + '<button class="iconbtn" data-act="sheet" data-v="menu" aria-label="Menu">☰</button></div>'
+    + '<div class="subrow"><span id="badgeslot"></span><span class="devlabel">'+(device==='home'?'Home':'Nursery')+' device'+(isToday?'':' · <button class="linkbtn" data-act="today">Go to today</button>')+'</span></div></div></div>';
+  h += '<div class="wrap"><div class="summary">Meals recorded '+mainDone+'/3 · Snacks given '+snacks+' · Smoothie '+(smItem && smItem.drunk!=null && smItem.drunk!=='' ? esc(smItem.drunk)+' ml' : 'not recorded')+'</div>';
+  ['breakfast','lunch','dinner'].forEach(m => {
+    const list = by(m);
+    h += '<div class="slot"><h2>'+MEAL_LABEL[m]+'</h2>';
+    if (!list.length){
+      const late = isPast || (isToday && nowT > LATE_AFTER[m]);
+      h += '<div class="gap'+(late?' late':'')+'">Nothing recorded yet</div>'
+        + '<div class="row"><button class="btn primary" data-act="add" data-v="'+m+'">+ Add '+MEAL_LABEL[m].toLowerCase()+'</button>'
+        + '<button class="btn quiet" data-act="quick" data-v="'+m+'|nothing_eaten">Nothing eaten</button></div>';
+    } else { list.forEach(r => h += entryHtml(r)); h += '<div class="row"><button class="btn sm quiet" data-act="add" data-v="'+m+'">+ Add more</button></div>'; }
+    h += '</div>';
+  });
+  // snacks
+  const sl = by('snack');
+  h += '<div class="slot"><h2>Snacks <small>'+snacks+' given</small></h2>';
+  if (!sl.length) h += '<div class="gap">No snacks recorded</div>';
+  sl.forEach(r => h += entryHtml(r));
+  h += '<div class="row"><button class="btn primary" data-act="add" data-v="snack">+ Add snack</button>'
+    + (sl.some(r=>r.status==='not_offered') ? '' : '<button class="btn quiet" data-act="quick" data-v="snack|not_offered">No snack given</button>')+'</div></div>';
+  // smoothie
+  h += '<div class="slot"><h2>Smoothie <small>day total</small></h2>';
+  if (sm) h += entryHtml(sm);
+  else h += '<div class="gap'+(isPast?' late':'')+'">'+(device==='home'?'Not recorded yet – add at the end of the day':'Recorded at home')+'</div>';
+  if (!sm && device==='home') h += '<div class="row"><button class="btn primary" data-act="smoothie">+ Record smoothie</button></div>';
+  h += '</div>';
+  if (hiddenRows.length){
+    h += '<button class="linkbtn" data-act="toggleRemoved">'+(S.showRemoved?'Hide':'Show')+' removed entries ('+hiddenRows.length+')</button>';
+    const replaced = new Set(rows.map(r=>r.supersedes).filter(Boolean));
+    if (S.showRemoved) h += '<div class="slot">'+hiddenRows.map(r=>entryHtml(r, true, replaced.has(r.id))).join('')+'</div>';
+  }
+  h += '<div class="foot">Build '+BUILD+(sync.last?' · last synced '+new Date(sync.last).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):'')+'</div></div>';
+  h += '<div class="fab"><div class="wrap"><button class="btn primary" data-act="add" data-v="">+ Add food</button></div></div>';
+  return h;
+}
+
+function entryHtml(r, removed, replaced){
+  let h = '<div class="entry'+(removed?' removed':'')+'"><div class="emeta">'
+    + (r.meal==='drink' ? '' : '<b style="color:var(--ink)">'+esc(r.eaten_time||'time not given')+'</b>')
+    + (r.meal==='snack' ? '<span>Snack</span>' : '')
+    + '<span class="src '+esc(r.source)+'">'+(r.source==='nursery'?'Nursery':'Home')+'</span>'
+    + ((r.tags||[]).includes('From paper') ? '<span>from paper</span>' : '')
+    + (r._pending ? '<span class="pending">not sent yet</span>' : '') + '</div>';
+  if (r.status==='nothing_eaten') h += '<div class="item"><b>Nothing eaten</b></div>';
+  else if (r.status==='not_offered') h += '<div class="item"><b>'+(r.meal==='snack'?'No snack given':'Not offered')+'</b></div>';
+  (r.items||[]).forEach(it => {
+    const o = offeredText(it), e = eatenText(it);
+    h += '<div class="item">'+(it.kind==='supplement'?'💊 ':'')+'<b>'+esc(it.name)+'</b>'
+      + (o ? ' <span class="amt">· '+esc(o)+'</span>' : (it.kind!=='supplement'? ' <span class="miss">· amount offered missing</span>':''))
+      + (e ? ' <span class="amt">→ '+(it.kind==='food'?'eaten: ':it.kind==='supplement'?'taken: ':'')+esc(e)+'</span>' : (it.kind==='food' ? ' <span class="miss">· amount eaten missing</span>' : ''))
+      + (it.detail ? '<div class="hint">'+esc(it.detail)+'</div>' : '') + '</div>';
+  });
+  const tags = (r.tags||[]).filter(t=>t!=='From paper');
+  if (tags.length) h += '<div class="tagline">'+tags.map(esc).join(' · ')+'</div>';
+  if (r.note) h += '<div class="note">'+esc(r.note)+'</div>';
+  h += '<div class="eacts">' + (removed
+      ? (replaced ? '<span class="hint">Earlier version – replaced by an edit</span>' : '<button class="btn sm" data-act="restore" data-v="'+r.id+'">Restore</button>')
+      : (r.status==='eaten' ? '<button class="btn sm quiet" data-act="edit" data-v="'+r.id+'">Edit</button>' : '')
+        + '<button class="btn sm quiet danger" data-act="remove" data-v="'+r.id+'">Remove</button>') + '</div></div>';
+  return h;
+}
+
+/* ---------- add / edit form ---------- */
+function openForm(meal, editRow){
+  if (editRow){
+    if (editRow.meal==='drink') return openSmoothie(editRow);
+    S.form = { id:null, supersedes:editRow.id, day:editRow.day, meal:editRow.meal, time:editRow.eaten_time||'',
+      items: JSON.parse(JSON.stringify(editRow.items||[])), tags:(editRow.tags||[]).filter(t=>t!=='From paper'),
+      paper:(editRow.tags||[]).includes('From paper'), note:editRow.note||'', source:editRow.source };
+    if (!S.form.items.length) S.form.items=[newItem()];
+  } else {
+    S.form = { supersedes:null, day:S.day, meal:meal||'', time: S.day===today()?nowTime():'', items:[newItem()], tags:[], paper:false, note:'', source:device };
+  }
+  S.screen='form'; render(); window.scrollTo(0,0);
+}
+function chips(list, cur, act, extra){
+  return '<div class="chips">'+list.map(x=>{ const v=Array.isArray(x)?x[0]:x, l=Array.isArray(x)?x[1]:x;
+    return '<button class="chip'+(extra||'')+(v===cur?' on':'')+'" data-act="'+act+'" data-v="'+esc(v)+'">'+esc(l)+'</button>'; }).join('')+'</div>';
+}
+function renderForm(){
+  const f = S.form;
+  let h = '<div class="top"><div class="wrap toprow"><button class="iconbtn" data-act="cancel" aria-label="Back">‹</button><h1 style="flex:1;font-size:21px;margin:0">'+(f.supersedes?'Edit entry':'Add food')+'</h1></div></div><div class="wrap screen">';
+  h += '<div class="field"><span class="flabel">Which meal?</span><div class="chips">'
+    + MEALS.map(([v,l])=>'<button class="chip meal'+(f.meal===v?' on':'')+'" data-act="f-meal" data-v="'+v+'">'+l+'</button>').join('')+'</div></div>';
+  h += '<div class="field inline"><div><span class="flabel">Date</span><input class="txt" type="date" data-f="day" value="'+esc(f.day)+'" max="'+today()+'"></div>'
+    + '<div><span class="flabel">Time</span><input class="txt" type="time" data-f="time" value="'+esc(f.time)+'"></div></div>';
+  if (f.meal==='breakfast') h += '<div class="row"><button class="btn quiet" data-act="usual">Fill in usual breakfast</button></div>';
+  const hist = history();
+  f.items.forEach((it, i) => {
+    const isS = it.kind==='supplement';
+    h += '<div class="itemcard'+(isS?' supp':'')+'"><div class="ihead"><input class="txt" data-i="'+i+'" data-k="name" placeholder="'+(isS?'Supplement':'Food – what was it?')+'" value="'+esc(it.name)+'" autocomplete="off">'
+      + (f.items.length>1 ? '<button class="iconbtn" data-act="delitem" data-v="'+i+'" aria-label="Remove this food">✕</button>' : '') + '</div>';
+    // suggestions from past entries
+    h += '<div id="sugg-'+i+'">'+suggHtml(i, hist)+'</div>';
+    h += '<label class="check"><input type="checkbox" data-i="'+i+'" data-k="isSupp"'+(isS?' checked':'')+'> This is a supplement</label>';
+    h += '<div class="sub"><span class="flabel">Amount offered <small>– household measures</small></span><div class="inline">'
+      + '<input class="txt num" inputmode="decimal" placeholder="Number" data-i="'+i+'" data-k="n" value="'+esc(it.n)+'"></div>'
+      + '<div class="chips" style="margin-top:8px">'+UNITS.map(u=>'<button class="chip small'+(it.unit===u?' on':'')+'" data-act="unit" data-v="'+i+'|'+u+'">'+u+'</button>').join('')+'</div>';
+    if (/bowl/.test(it.unit)) h += '<div class="sub"><span class="flabel">How full was the bowl?</span><div class="chips">'+FILLS.map(x=>'<button class="chip small'+(it.fill===x?' on':'')+'" data-act="fill" data-v="'+i+'|'+x+'">'+x+'</button>').join('')+'</div></div>';
+    h += '<input class="txt" style="margin-top:10px" placeholder="Or describe it (e.g. 120 g pouch, 1 slice)" data-i="'+i+'" data-k="desc" value="'+esc(it.desc)+'"></div>';
+    if (isS) h += '<div class="sub"><span class="flabel">Supplement eaten?</span><div class="chips">'+SUPP.map(([v,l])=>'<button class="chip'+(it.supp===v?' on':'')+'" data-act="supp" data-v="'+i+'|'+v+'">'+l+'</button>').join('')+'</div></div>';
+    else h += '<div class="sub"><span class="flabel">How much was eaten?</span><div class="chips">'+EATEN.map(([v,l])=>'<button class="chip'+(it.eaten===v?' on':'')+'" data-act="eaten" data-v="'+i+'|'+v+'">'+l+'</button>').join('')+'</div></div>';
+    h += '</div>';
+  });
+  h += '<div class="row"><button class="btn" data-act="additem">+ Another food</button><button class="btn" data-act="addsupp">+ Supplement</button></div>';
+  h += '<div class="field"><span class="flabel">Anything else? <small>(optional – tap any that apply)</small></span><div class="chips">'
+    + TAGS.map(t=>'<button class="chip small'+(f.tags.includes(t)?' on':'')+'" data-act="tag" data-v="'+esc(t)+'">'+esc(t)+'</button>').join('')+'</div></div>';
+  h += '<div class="field"><span class="flabel">Notes <small>(optional)</small></span><textarea class="txt" data-f="note" placeholder="Anything worth knowing">'+esc(f.note)+'</textarea></div>';
+  h += '<div class="field"><span class="flabel">Logged by</span><div class="chips">'
+    + [['home','Home'],['nursery','Nursery']].map(([v,l])=>'<button class="chip'+(f.source===v?' on':'')+'" data-act="f-src" data-v="'+v+'">'+l+'</button>').join('')
+    + '<button class="chip'+(f.paper?' on':'')+'" data-act="f-paper">Copied from paper</button></div></div>';
+  h += '<div id="formwarn"></div><div class="field"><button class="btn primary big" data-act="save">Save</button></div><div style="height:30px"></div></div>';
+  return h;
+}
+function suggHtml(i, hist){
+  const q = S.form.items[i].name.trim().toLowerCase();
+  if (!q || hist[q]) return '';
+  const s = Object.keys(hist).filter(n => n.indexOf(q)>=0 && hist[n].kind!=='drink').slice(0,6);
+  return s.length ? '<div class="chips" style="margin-top:8px">'+s.map(n=>'<button class="chip sugg" data-act="sugg" data-v="'+i+'|'+esc(hist[n].name)+'">'+esc(hist[n].name)+'</button>').join('')+'</div>' : '';
+}
+function saveForm(){
+  const f = S.form;
+  const items = f.items.map(it => Object.assign({}, it, {name:it.name.trim(), n:String(it.n||'').trim(), desc:it.desc.trim()})).filter(it => it.name);
+  const problems = [];
+  if (!f.meal) problems.push('Choose which meal');
+  if (!items.length) problems.push('Add at least one food');
+  if (!f.day) problems.push('Choose a date');
+  if (problems.length){ document.getElementById('formwarn').innerHTML = '<div class="warnbox">'+problems.map(esc).join('<br>')+'</div>'; return; }
+  items.forEach(it => { it.offeredText = offeredText(it); });
+  const row = { id: uuid(), day: f.day, meal: f.meal, eaten_time: f.time||'', status:'eaten', items,
+    tags: f.tags.concat(f.paper?['From paper']:[]), note: f.note.trim(), source: f.source, supersedes: f.supersedes||null,
+    client_created_at: new Date().toISOString(), hidden:false };
+  const old = f.supersedes;
+  S.day = f.day; S.form = null; S.screen = 'day';
+  enqueue({op:'add', row});
+  window.scrollTo(0,0);
+  toast(old ? 'Changes saved' : 'Saved', () => {
+    enqueue({op:'hide', id:row.id, hidden:true});
+    if (old) enqueue({op:'hide', id:old, hidden:false});
+  });
+}
+
+/* ---------- smoothie ---------- */
+function openSmoothie(editRow){
+  const prev = editRow || lastSmoothie();
+  const it = prev ? (prev.items||[])[0] || {} : {};
+  const supp = {};
+  if (prev) (prev.items||[]).slice(1).forEach(x => supp[x.name] = x.desc || x.amount || '');
+  S.sm = { supersedes: editRow?editRow.id:null, day: editRow?editRow.day:S.day,
+    made: editRow?(it.made||''):'', left: editRow?(it.left||''):'', drunk: editRow?(it.drunk||''):'', drunkEdited: !!editRow,
+    recipe: it.detail ? it.detail.replace(/^In it: /,'') : '', supp: SMOOTHIE_SUPPLEMENTS.map(n => ({name:n, amount: supp[n]||''})), note: editRow?editRow.note||'':'' };
+  S.screen='smoothie'; render(); window.scrollTo(0,0);
+}
+function renderSmoothie(){
+  const s = S.sm;
+  let h = '<div class="top"><div class="wrap toprow"><button class="iconbtn" data-act="cancel" aria-label="Back">‹</button><h1 style="flex:1;font-size:21px;margin:0">Smoothie – day total</h1></div></div><div class="wrap screen">';
+  h += '<div class="field"><span class="flabel">Date</span><input class="txt" type="date" data-s="day" value="'+esc(s.day)+'" max="'+today()+'"></div>';
+  h += '<div class="field inline"><div><span class="flabel">Made up (ml)</span><input class="txt num" inputmode="numeric" data-s="made" value="'+esc(s.made)+'"></div>'
+    + '<div><span class="flabel">Left over (ml)</span><input class="txt num" inputmode="numeric" data-s="left" value="'+esc(s.left)+'"></div>'
+    + '<div><span class="flabel">Drunk (ml)</span><input class="txt num" inputmode="numeric" data-s="drunk" value="'+esc(s.drunk)+'"></div></div>';
+  h += '<div class="hint">Add up all bottles for the day, including ones sent to nursery. "Drunk" fills in by itself, or type it directly.</div>';
+  h += '<div class="field"><span class="flabel">What\'s in it <small>(ingredients and amounts – remembered for next time)</small></span><textarea class="txt" data-s="recipe" placeholder="e.g. 200 ml whole milk, 1 banana, 2 tbsp oats…">'+esc(s.recipe)+'</textarea></div>';
+  h += '<div class="field"><span class="flabel">Supplements in the smoothie <small>(dose – remembered)</small></span>';
+  s.supp.forEach((x,i) => h += '<div class="inline" style="margin-top:8px"><span style="min-width:120px">💊 '+esc(x.name)+'</span><input class="txt" style="flex:1" data-ss="'+i+'" placeholder="Dose" value="'+esc(x.amount)+'"></div>');
+  h += '</div><div class="field"><span class="flabel">Notes <small>(optional)</small></span><textarea class="txt" data-s="note">'+esc(s.note)+'</textarea></div>';
+  h += '<div id="formwarn"></div><div class="field"><button class="btn primary big" data-act="savesm">Save</button></div><div style="height:30px"></div></div>';
+  return h;
+}
+function saveSmoothie(){
+  const s = S.sm;
+  const made = parseFloat(s.made), left = parseFloat(s.left), drunk = parseFloat(s.drunk);
+  if (!(drunk>=0) && !(made>=0)){ document.getElementById('formwarn').innerHTML='<div class="warnbox">Enter how much was made up and left over, or how much was drunk</div>'; return; }
+  const pct = (made>0 && drunk>=0) ? Math.round(100*drunk/made) : null;
+  const items = [{ name:'Smoothie', kind:'drink', made: s.made, left: s.left, drunk: s.drunk,
+    fixed:true, offeredText: (made>=0 ? made+' ml made up' : ''), eatenText: (drunk>=0 ? drunk+' ml drunk' : ''),
+    detail: s.recipe.trim() ? 'In it: '+s.recipe.trim() : '' }];
+  s.supp.forEach(x => items.push({ name:x.name, kind:'supplement', fixed:true, desc:x.amount.trim(), offeredText: x.amount.trim() ? x.amount.trim()+' (in smoothie)' : 'In smoothie',
+    eatenText: 'In smoothie'+(pct!=null?' – about '+pct+'% drunk':'') }));
+  const row = { id:uuid(), day:s.day, meal:'drink', eaten_time:'', status:'eaten', items, tags:[], note:s.note.trim(), source:'home',
+    supersedes: s.supersedes, client_created_at:new Date().toISOString(), hidden:false };
+  const old = s.supersedes;
+  S.day = s.day; S.sm=null; S.screen='day';
+  enqueue({op:'add', row}); window.scrollTo(0,0);
+  toast('Smoothie saved', () => { enqueue({op:'hide', id:row.id, hidden:true}); if (old) enqueue({op:'hide', id:old, hidden:false}); });
+}
+
+/* ---------- export ---------- */
+function exportRows(from, to){
+  const out = [];
+  Object.values(allRows()).filter(r => !r.hidden && r.day>=from && r.day<=to)
+    .sort((a,b)=> (a.day+sortKey(a))<(b.day+sortKey(b))?-1:1)
+    .forEach(r => {
+      const base = { Date: ukDate(r.day), Day: parseDate(r.day).toLocaleDateString('en-GB',{weekday:'short'}),
+        Meal: MEAL_LABEL[r.meal], Time: r.meal==='drink' ? 'Whole day' : (r.eaten_time||''),
+        Setting: (r.tags||[]).filter(t=>t!=='From paper').join('; '),
+        'Logged by': (r.source==='nursery'?'Nursery':'Home') + ((r.tags||[]).includes('From paper')?' (from paper)':''),
+        Notes: r.note||'' , _day:r.day };
+      if (r.status!=='eaten'){ out.push(Object.assign({}, base, {'Food or drink': r.status==='nothing_eaten'?'Nothing eaten':(r.meal==='snack'?'No snack given':'Not offered'), Type:'', 'Amount offered':'', 'Amount eaten':''})); return; }
+      (r.items||[]).forEach(it => out.push(Object.assign({}, base, {
+        'Food or drink': it.name + (it.detail ? ' ('+it.detail+')' : ''),
+        Type: it.kind==='supplement'?'Supplement':(it.kind==='drink'?'Drink':'Food'),
+        'Amount offered': offeredText(it), 'Amount eaten': eatenText(it) })));
+    });
+  return out;
+}
+const COLS = ['Date','Day','Meal','Time','Food or drink','Type','Amount offered','Amount eaten','Setting','Logged by','Notes'];
+function renderExport(){
+  const rows = exportRows(S.exFrom, S.exTo);
+  const days = new Set(rows.map(r=>r._day)).size;
+  let h = '<div class="top"><div class="wrap toprow"><button class="iconbtn" data-act="cancel" aria-label="Back">‹</button><h1 style="flex:1;font-size:21px;margin:0">For the dietician</h1></div></div><div class="wrap screen">';
+  h += '<div class="field inline"><div><span class="flabel">From</span><input class="txt" type="date" data-x="exFrom" value="'+esc(S.exFrom)+'"></div><div><span class="flabel">To</span><input class="txt" type="date" data-x="exTo" value="'+esc(S.exTo)+'"></div></div>';
+  h += '<p class="hint">'+rows.length+' rows across '+days+' day'+(days===1?'':'s')+'. "Type" lets her filter supplements out. '+(queue.length?'<b>'+queue.length+' entries on this device haven\'t reached the server yet – they are included here.</b>':'')+'</p>';
+  h += '<div class="row"><button class="btn primary" data-act="copy">Copy as table</button><button class="btn" data-act="csv">Download CSV</button>'
+    + (navigator.canShare ? '<button class="btn" data-act="sharecsv">Share CSV</button>' : '') + '</div><div id="copyout"></div>';
+  h += '<div class="tablewrap"><table class="prev"><tr>'+COLS.map(c=>'<th>'+c+'</th>').join('')+'</tr>';
+  let lastDay=null;
+  rows.forEach(r => { if (r._day!==lastDay){ lastDay=r._day; h += '<tr class="dayhead"><td colspan="'+COLS.length+'">'+esc(niceDate(r._day,true))+'</td></tr>'; }
+    h += '<tr>'+COLS.map(c=>'<td>'+esc(r[c])+'</td>').join('')+'</tr>'; });
+  h += '</table></div><div style="height:40px"></div></div>';
+  return h;
+}
+function csvText(rows){ const q = v => { v=String(v==null?'':v); return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v; };
+  return '﻿'+[COLS.map(q).join(',')].concat(rows.map(r=>COLS.map(c=>q(r[c])).join(','))).join('\r\n'); }
+function tsvText(rows){ const c = v => String(v==null?'':v).replace(/[\t\r\n]+/g,' '); return [COLS.join('\t')].concat(rows.map(r=>COLS.map(k=>c(r[k])).join('\t'))).join('\n'); }
+function htmlTable(rows){ return '<table border="1" cellpadding="4" style="border-collapse:collapse"><tr>'+COLS.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr>'+rows.map(r=>'<tr>'+COLS.map(c=>'<td>'+esc(r[c])+'</td>').join('')+'</tr>').join('')+'</table>'; }
+async function doCopy(){
+  const rows = exportRows(S.exFrom, S.exTo); const tsv = tsvText(rows), html = htmlTable(rows);
+  try {
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
+      await navigator.clipboard.write([new ClipboardItem({'text/html': new Blob([html],{type:'text/html'}), 'text/plain': new Blob([tsv],{type:'text/plain'})})]);
+    } else await navigator.clipboard.writeText(tsv);
+    toast('Copied '+rows.length+' rows – paste it in');
+  } catch(e){
+    document.getElementById('copyout').innerHTML = '<p class="hint">Couldn\'t copy automatically. Select all of this and copy:</p><textarea class="txt" style="min-height:160px">'+esc(tsv)+'</textarea>';
+  }
+}
+function csvFile(){ return new File([csvText(exportRows(S.exFrom, S.exTo))], 'food-diary_'+S.exFrom+'_to_'+S.exTo+'.csv', {type:'text/csv'}); }
+function doCsv(){ const f=csvFile(); const a=document.createElement('a'); a.href=URL.createObjectURL(f); a.download=f.name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();}, 2000); }
+async function doShare(){ const f=csvFile(); try { if (navigator.canShare({files:[f]})) await navigator.share({files:[f], title:f.name}); else doCsv(); } catch(e){ if (e.name!=='AbortError') doCsv(); } }
+
+/* ---------- sheets ---------- */
+function renderSheet(){
+  let h = '<div class="sheet" data-act="closesheet"><div class="panel" data-stop="1">';
+  if (S.sheet==='sync'){
+    h += '<h2>Saving</h2>';
+    if (DEMO) h += '<p>Demo mode: entries are only kept in this browser.</p>';
+    else {
+      h += '<p>'+(queue.length ? queue.length+' entr'+(queue.length===1?'y is':'ies are')+' saved on this device and waiting to be sent.' : 'Everything on this device has reached the server.')+'</p>';
+      if (sync.offline && queue.length) h += '<p>No connection at the moment. They\'ll send automatically when the WiFi is back – nothing is lost if you close the page.</p>';
+      if (sync.error) h += '<div class="warnbox">'+esc(sync.error)+'</div>';
+      h += '<p class="hint">Last successful sync: '+(sync.last?esc(new Date(sync.last).toLocaleString('en-GB')):'never')+'</p>';
+      h += '<div class="row"><button class="btn primary" data-act="trysync">Try now</button></div>';
+    }
+  } else if (S.sheet==='menu'){
+    h += '<h2>Menu</h2><div class="row" style="flex-direction:column">'
+      + '<button class="btn big" data-act="export">For the dietician (copy / CSV)</button>'
+      + (device==='home' ? '<button class="btn big" data-act="smoothie">Record smoothie</button>' : '')
+      + '<button class="btn big" data-act="copylink">Copy link for another device</button>'
+      + '<button class="btn big quiet" data-act="setdev" data-v="'+(device==='home'?'nursery':'home')+'">Switch this device to '+(device==='home'?'Nursery':'Home')+'</button></div>'
+      + '<p class="hint">This device is set to <b>'+(device==='home'?'Home':'Nursery')+'</b>. Build '+BUILD+'.</p>';
+  }
+  h += '<div class="row"><button class="btn big quiet" data-act="closesheet">Close</button></div></div></div>';
+  return h;
+}
+
+/* ---------- events ---------- */
+function itemAt(v){ const [i, val] = String(v).split('|'); return [S.form.items[+i], val, +i]; }
+app.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if (!el) return;
+  if (el.dataset.act==='closesheet' && e.target.closest('[data-stop]') && el.classList.contains('sheet')) return;
+  const a = el.dataset.act, v = el.dataset.v;
+  const f = S.form;
+  switch(a){
+    case 'setdev': device=v; store.set(P+'device', v); S.sheet=null; render(); break;
+    case 'day': if (+v>0 && S.day>=today()) break; S.day = addDays(S.day, +v); render(); refreshRange(addDays(S.day,-1), addDays(S.day,1)).then(softRender).catch(()=>{}); break;
+    case 'today': S.day = today(); render(); break;
+    case 'sheet': S.sheet = v; render(); break;
+    case 'closesheet': S.sheet=null; render(); break;
+    case 'trysync': sync.error=null; trySync(); break;
+    case 'toggleRemoved': S.showRemoved=!S.showRemoved; render(); break;
+    case 'add': openForm(v); break;
+    case 'edit': openForm(null, allRows()[v]); break;
+    case 'smoothie': S.sheet=null; { const ex = rowsForDay(S.day).find(r=>r.meal==='drink'); openSmoothie(ex||null); } break;
+    case 'cancel': S.screen='day'; S.form=null; S.sm=null; render(); break;
+    case 'quick': { const [meal, status] = v.split('|');
+      const row = {id:uuid(), day:S.day, meal, eaten_time:'', status, items:[], tags:[], note:'', source:device, supersedes:null, client_created_at:new Date().toISOString(), hidden:false};
+      enqueue({op:'add', row}); toast(status==='not_offered'?'Recorded: no snack given':'Recorded: nothing eaten', () => enqueue({op:'hide', id:row.id, hidden:true})); } break;
+    case 'remove': if (confirm('Remove this entry? You can undo or restore it later.')){ enqueue({op:'hide', id:v, hidden:true}); toast('Removed', () => enqueue({op:'hide', id:v, hidden:false})); } break;
+    case 'restore': enqueue({op:'hide', id:v, hidden:false}); toast('Restored'); break;
+    case 'f-meal': f.meal=v; render(); break;
+    case 'f-src': f.source=v; render(); break;
+    case 'f-paper': f.paper=!f.paper; render(); break;
+    case 'tag': f.tags = f.tags.includes(v) ? f.tags.filter(t=>t!==v) : f.tags.concat([v]); render(); break;
+    case 'usual': { const hist=history(); const have = f.items.filter(it=>it.name.trim());
+      f.items = have.concat(USUAL_BREAKFAST.filter(b => !have.some(it=>it.name.toLowerCase()===b.name.toLowerCase())).map(b => {
+        const it = newItem(b.name, b.kind), p = hist[b.name.toLowerCase()];
+        if (p){ it.n=p.n||''; it.unit=p.unit||''; it.fill=p.fill||''; it.desc=p.desc||''; it.kind=p.kind||b.kind; }
+        return it; }));
+      render(); } break;
+    case 'additem': f.items.push(newItem()); render(); break;
+    case 'addsupp': f.items.push(newItem('', 'supplement')); render(); break;
+    case 'delitem': f.items.splice(+v,1); render(); break;
+    case 'sugg': { const [it, name] = itemAt(v); const p = history()[name.toLowerCase()]; it.name=name;
+      if (p && !it.unit && !it.n && !it.desc){ it.n=p.n||''; it.unit=p.unit||''; it.fill=p.fill||''; it.desc=p.desc||''; }
+      if (p && p.kind && p.kind!=='drink') it.kind=p.kind; render(); } break;
+    case 'unit': { const [it, u] = itemAt(v); it.unit = it.unit===u ? '' : u; if (!/bowl/.test(it.unit)) it.fill=''; render(); } break;
+    case 'fill': { const [it, x] = itemAt(v); it.fill = it.fill===x?'':x; render(); } break;
+    case 'eaten': { const [it, x] = itemAt(v); it.eaten = it.eaten===x?'':x; render(); } break;
+    case 'supp': { const [it, x] = itemAt(v); it.supp = it.supp===x?'':x; render(); } break;
+    case 'save': saveForm(); break;
+    case 'savesm': saveSmoothie(); break;
+    case 'export': S.sheet=null; S.screen='export'; render(); window.scrollTo(0,0);
+      refreshRange(S.exFrom, S.exTo).then(softRender).catch(e=>{ if(!e.offline) showErr(e.message); }); break;
+    case 'copy': doCopy(); break;
+    case 'csv': doCsv(); break;
+    case 'sharecsv': doShare(); break;
+    case 'copylink': { const link = location.origin+location.pathname+'#k='+(LINK_KEY||'');
+      (navigator.clipboard ? navigator.clipboard.writeText(link) : Promise.reject()).then(()=>toast('Link copied')).catch(()=>prompt('Copy this link:', link)); } break;
+  }
+});
+app.addEventListener('input', e => {
+  const t = e.target;
+  if (t.dataset.f && S.form){ S.form[t.dataset.f] = t.value; }
+  else if (t.dataset.k && S.form){ const it = S.form.items[+t.dataset.i];
+    if (t.dataset.k==='isSupp') return;   // handled on 'change'
+    it[t.dataset.k] = t.value;
+    if (t.dataset.k==='name'){ const box = document.getElementById('sugg-'+t.dataset.i); if (box) box.innerHTML = suggHtml(+t.dataset.i, history()); }
+  }
+  else if (t.dataset.s && S.sm){ S.sm[t.dataset.s] = t.value;
+    if (t.dataset.s==='drunk') S.sm.drunkEdited = t.value!=='';
+    if ((t.dataset.s==='made'||t.dataset.s==='left') && !S.sm.drunkEdited){
+      const m=parseFloat(S.sm.made), l=parseFloat(S.sm.left)||0; S.sm.drunk = m>=0 ? String(Math.max(0, m-l)) : '';
+      const d = app.querySelector('[data-s="drunk"]'); if (d) d.value = S.sm.drunk; } }
+  else if (t.dataset.ss && S.sm){ S.sm.supp[+t.dataset.ss].amount = t.value; }
+});
+app.addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.k==='isSupp' && S.form){ S.form.items[+t.dataset.i].kind = t.checked ? 'supplement' : 'food'; render(); }
+  if (t.dataset.x){ S[t.dataset.x] = t.value; if (S.exFrom > S.exTo){ const x=S.exFrom; S.exFrom=S.exTo; S.exTo=x; }
+    render(); refreshRange(S.exFrom, S.exTo).then(softRender).catch(()=>{}); }
+});
+
+/* ---------- keep in sync ---------- */
+window.addEventListener('online', trySync);
+document.addEventListener('visibilitychange', () => { if (!document.hidden){ softRender(); trySync(); } });
+setInterval(() => { if (queue.length) trySync(); }, 30000);
+setInterval(() => { if (!document.hidden && S.screen==='day' && !S.sheet) trySync(); }, 120000);
+if ('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+render();
+if (!DEMO && LINK_KEY){
+  refreshRange(addDays(today(),-30), today()).then(()=>{ sync.last=new Date().toISOString(); saveSync(); softRender(); }).catch(e=>{ if (!e.offline){ sync.error=e.message; softRender(); } });
+  trySync();
+}
+</script>
+</body>
+</html>
