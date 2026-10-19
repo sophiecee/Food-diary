@@ -124,13 +124,14 @@ const CFG = window.FOOD_DIARY_CONFIG || {};
 const SUPABASE_URL = CFG.url || 'PASTE_SUPABASE_URL_HERE';
 const SUPABASE_ANON_KEY = CFG.key || 'PASTE_SUPABASE_ANON_KEY_HERE';
 
-const BUILD = 'b6';
+const BUILD = 'b7';
 
 // "Usual breakfast" button. Kind is 'food' or 'supplement'.
 // n / unit / desc are optional starting amounts; the person logging fills in
 // how much was offered (porridge) and how much was eaten or taken.
 const USUAL_BREAKFAST = [
-  { name: 'Porridge', kind: 'food' },
+  { name: 'Ready Brek (porridge oats)', kind: 'food' },
+  { name: 'Oatly Barista oat drink', kind: 'food', unit: 'ml' },
   { name: 'Flax seeds', kind: 'food' },
   { name: "Nordic Naturals Children's DHA fish oil", kind: 'supplement', desc: '2.5 ml (530 mg omega-3)' },
   { name: 'Viridian Viridikid multivitamin & mineral', kind: 'supplement', desc: '1 capsule' },
