@@ -94,7 +94,7 @@ textarea.txt{min-height:84px;resize:vertical}
 #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom));background:var(--ink);color:#fff;border-radius:14px;padding:6px 6px 6px 18px;display:none;align-items:center;gap:12px;z-index:50;font-size:17px;max-width:92vw;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 #toast button{background:#fff;color:var(--ink);border:0;border-radius:10px;min-height:46px;padding:0 18px;font-weight:700}
 #errbar{position:fixed;left:0;right:0;top:0;z-index:60;background:var(--red);color:#fff;padding:10px 14px;font-size:14px;display:none;white-space:pre-wrap}
-.sheet{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.sheet{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.35);z-index:40;display:flex;align-items:flex-end;justify-content:center}
 .sheet .panel{background:var(--bg);width:100%;max-width:760px;border-radius:20px 20px 0 0;padding:20px 16px calc(24px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
 .panel h2{margin:0 0 10px;font-size:21px}
 .panel p{margin:8px 0}
@@ -124,7 +124,7 @@ const CFG = window.FOOD_DIARY_CONFIG || {};
 const SUPABASE_URL = CFG.url || 'PASTE_SUPABASE_URL_HERE';
 const SUPABASE_ANON_KEY = CFG.key || 'PASTE_SUPABASE_ANON_KEY_HERE';
 
-const BUILD = 'b3';
+const BUILD = 'b6';
 
 // "Usual breakfast" button. Kind is 'food' or 'supplement'.
 // n / unit / desc are optional starting amounts; the person logging fills in
@@ -132,8 +132,8 @@ const BUILD = 'b3';
 const USUAL_BREAKFAST = [
   { name: 'Porridge', kind: 'food' },
   { name: 'Flax seeds', kind: 'food' },
-  { name: 'Nordic Naturals DHA for kids omega 3', kind: 'supplement', desc: '2.5 ml' },
-  { name: 'Viridikid', kind: 'supplement', desc: '1 capsule' },
+  { name: "Nordic Naturals Children's DHA fish oil", kind: 'supplement', desc: '2.5 ml (530 mg omega-3)' },
+  { name: 'Viridian Viridikid multivitamin & mineral', kind: 'supplement', desc: '1 capsule' },
   { name: 'Kiwi fruit', kind: 'food', n: '1', unit: 'piece' }
 ];
 // One-tap extras offered on every meal (for things that go in everything).
@@ -141,7 +141,12 @@ const QUICK_ADD = [ { name: 'Flax seeds', kind: 'food' } ];
 // Added to the notes when the usual breakfast button is used.
 const USUAL_BREAKFAST_NOTE = 'See spreadsheet for content of vitamin and mineral supplement';
 // Supplements that go in the daily smoothie (added as their own rows).
-const SMOOTHIE_SUPPLEMENTS = ['Magnesium', 'Vitamin B6'];
+// Given in a separate small thermos drink and always all taken.
+// Each has a standard daily dose, filled in automatically (editable).
+const SMOOTHIE_SUPPLEMENTS = [
+  { name: 'Vitamin B6 (P5P, Metabolics)', dose: '3.6 ml stock solution = 1.63 mg P5P' },
+  { name: 'Magnesium bisglycinate (Mighty Kids liposomal)', dose: '10 ml = 50 mg elemental magnesium' }
+];
 // One-tap tags for a meal (all optional).
 const TAGS = ['At the table', 'On the floor mat', 'Split meal (poo break)', 'Finger food offered'];
 /* ========================================================= */
@@ -300,7 +305,9 @@ function toast(msg, undoFn){
 /* ---------- rendering ---------- */
 const app = document.getElementById('app');
 function render(){
-  if (!DEMO && !LINK_KEY){ app.innerHTML = '<div class="wrap centre"><h1>Food diary</h1><p>This page needs its full link to open.</p><p>Please use the link you were sent (it ends with a long code).</p></div>'; return; }
+  if (!DEMO && !LINK_KEY){ app.innerHTML = '<div class="wrap centre"><h1>Food diary</h1><p>This page needs its link code to open.</p><p class="hint">Paste the whole link, or just the long code at the end of it (after <b>#k=</b>).</p>'
+    + '<input class="txt" id="keybox" placeholder="Paste link or code" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">'
+    + '<div id="keywarn"></div><div class="row" style="justify-content:center"><button class="btn primary big" data-act="savekey">Open the diary</button></div></div>'; return; }
   if (!device){ app.innerHTML = demoBar()+'<div class="wrap centre"><h1>Food diary</h1><p style="font-size:20px">Where is this device used?</p><div class="row" style="justify-content:center"><button class="btn primary big" data-act="setdev" data-v="home">Home</button><button class="btn primary big" data-act="setdev" data-v="nursery">Nursery</button></div><p class="hint">You can change this later.</p></div>'; return; }
   if (S.screen==='form') app.innerHTML = demoBar()+renderForm();
   else if (S.screen==='smoothie') app.innerHTML = demoBar()+renderSmoothie();
@@ -489,7 +496,7 @@ function openSmoothie(editRow){
   if (prev) (prev.items||[]).slice(1).forEach(x => supp[x.name] = x.desc || x.amount || '');
   S.sm = { supersedes: editRow?editRow.id:null, day: editRow?editRow.day:S.day,
     made: editRow?(it.made||''):'', left: editRow?(it.left||''):'', drunk: editRow?(it.drunk||''):'', drunkEdited: !!editRow,
-    recipe: it.detail ? it.detail.replace(/^In it: /,'') : '', supp: SMOOTHIE_SUPPLEMENTS.map(n => ({name:n, amount: supp[n]||''})), note: editRow?editRow.note||'':'' };
+    recipe: it.detail ? it.detail.replace(/^In it: /,'') : '', supp: SMOOTHIE_SUPPLEMENTS.map(x => ({name:x.name, amount: supp[x.name] || x.dose})), note: editRow?editRow.note||'':'' };
   S.screen='smoothie'; render(); window.scrollTo(0,0);
 }
 function renderSmoothie(){
@@ -501,7 +508,7 @@ function renderSmoothie(){
     + '<div><span class="flabel">Drunk (ml)</span><input class="txt num" inputmode="numeric" data-s="drunk" value="'+esc(s.drunk)+'"></div></div>';
   h += '<div class="hint">Add up all bottles for the day, including ones sent to nursery. "Drunk" fills in by itself, or type it directly.</div>';
   h += '<div class="field"><span class="flabel">What\'s in it <small>(ingredients and amounts – remembered for next time)</small></span><textarea class="txt" data-s="recipe" placeholder="e.g. 200 ml whole milk, 1 banana, 2 tbsp oats…">'+esc(s.recipe)+'</textarea></div>';
-  h += '<div class="field"><span class="flabel">Supplements in the smoothie <small>(dose – remembered)</small></span>';
+  h += '<div class="field"><span class="flabel">Daily supplements in his thermos drink <small>(always all taken – dose remembered)</small></span>';
   s.supp.forEach((x,i) => h += '<div class="inline" style="margin-top:8px"><span style="min-width:120px">💊 '+esc(x.name)+'</span><input class="txt" style="flex:1" data-ss="'+i+'" placeholder="Dose" value="'+esc(x.amount)+'"></div>');
   h += '</div><div class="field"><span class="flabel">Notes <small>(optional)</small></span><textarea class="txt" data-s="note">'+esc(s.note)+'</textarea></div>';
   h += '<div id="formwarn"></div><div class="field"><button class="btn primary big" data-act="savesm">Save</button></div><div style="height:30px"></div></div>';
@@ -515,8 +522,8 @@ function saveSmoothie(){
   const items = [{ name:'Smoothie', kind:'drink', made: s.made, left: s.left, drunk: s.drunk,
     fixed:true, offeredText: (made>=0 ? made+' ml made up' : ''), eatenText: (drunk>=0 ? drunk+' ml drunk' : ''),
     detail: s.recipe.trim() ? 'In it: '+s.recipe.trim() : '' }];
-  s.supp.forEach(x => items.push({ name:x.name, kind:'supplement', fixed:true, desc:x.amount.trim(), offeredText: x.amount.trim() ? x.amount.trim()+' (in smoothie)' : 'In smoothie',
-    eatenText: 'In smoothie'+(pct!=null?' – about '+pct+'% drunk':'') }));
+  s.supp.forEach(x => items.push({ name:x.name, kind:'supplement', fixed:true, desc:x.amount.trim(), offeredText: (x.amount.trim() ? x.amount.trim()+' ' : '')+'(in separate thermos drink)',
+    eatenText: 'All' }));
   const row = { id:uuid(), day:s.day, meal:'drink', eaten_time:'', status:'eaten', items, tags:[], note:s.note.trim(), source:'home',
     supersedes: s.supersedes, client_created_at:new Date().toISOString(), hidden:false };
   const old = s.supersedes;
@@ -612,6 +619,11 @@ app.addEventListener('click', e => {
   const a = el.dataset.act, v = el.dataset.v;
   const f = S.form;
   switch(a){
+    case 'savekey': { const raw = (document.getElementById('keybox').value||'').trim();
+      const m = raw.match(/k=([A-Za-z0-9]+)/) || raw.match(/^([A-Za-z0-9]{16,})$/);
+      if (!m){ document.getElementById('keywarn').innerHTML = '<div class="warnbox">That doesn\'t look like the code. It is about 24 letters and numbers.</div>'; break; }
+      LINK_KEY = m[1]; store.set(P+'key', LINK_KEY); render(); trySync();
+      refreshRange(addDays(today(),-30), today()).then(softRender).catch(()=>{}); } break;
     case 'setdev': device=v; store.set(P+'device', v); S.sheet=null; render(); break;
     case 'day': if (+v>0 && S.day>=today()) break; S.day = addDays(S.day, +v); render(); refreshRange(addDays(S.day,-1), addDays(S.day,1)).then(softRender).catch(()=>{}); break;
     case 'today': S.day = today(); render(); break;
@@ -634,7 +646,7 @@ app.addEventListener('click', e => {
     case 'tag': f.tags = f.tags.includes(v) ? f.tags.filter(t=>t!==v) : f.tags.concat([v]); render(); break;
     case 'usual': { const have = f.items.filter(it=>it.name.trim());
       f.items = have.concat(USUAL_BREAKFAST.filter(b => !have.some(it=>it.name.trim().toLowerCase()===b.name.toLowerCase())).map(b => {
-        const it = newItem(b.name, b.kind); it.n=b.n||''; it.unit=b.unit||''; it.desc=b.desc||''; return it; }));
+        const it = newItem(b.name, b.kind); it.n=b.n||''; it.unit=b.unit||''; it.desc=b.desc||''; it.supp=b.supp||''; return it; }));
       if (!f.note.trim()) f.note = USUAL_BREAKFAST_NOTE;
       render(); } break;
     case 'additem': f.items.push(newItem()); render(); break;
